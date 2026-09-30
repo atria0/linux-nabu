@@ -8,7 +8,7 @@ name: pkgbuild
 on:
   push:
     branches:
-      - 614-test
+      - 6.14
   workflow_dispatch:
     inputs:
       build_linux_nabu_614:
@@ -62,6 +62,11 @@ jobs:
           sig="$pkg-$pkgver-$pkgrel"
           echo "sig=$sig" >> "$GITHUB_OUTPUT"
           echo "Source signature: $sig"
+          sed -i 's/Kumar-Jy\/linux-nabu.git/atria0\/linux-nabu.git/' packages/$pkg/PKGBUILD
+          echo "===== 正在打印包 $pkg 的PKGBUILD文件内容 ====="
+cat "./packages/$pkg/PKGBUILD"
+echo "===== PKGBUILD内容打印完成 ====="
+
 
       - name: Restore cached build
         id: cache
