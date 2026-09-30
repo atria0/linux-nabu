@@ -62,6 +62,11 @@ jobs:
           sig="$pkg-$pkgver-$pkgrel"
           echo "sig=$sig" >> "$GITHUB_OUTPUT"
           echo "Source signature: $sig"
+          sed -i 's/Kumar-Jy\/linux-nabu.git/atria0\/linux-nabu.git/' packages/$pkg/PKGBUILD
+          echo "===== pting $pkg ====="
+          cat "./packages/$pkg/PKGBUILD"
+          echo "=====        ====="
+
 
       - name: Restore cached build
         id: cache
