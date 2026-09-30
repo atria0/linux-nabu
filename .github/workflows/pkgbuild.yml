@@ -8,7 +8,7 @@ name: pkgbuild
 on:
   push:
     branches:
-      - 6.14
+      - 614-test
   workflow_dispatch:
     inputs:
       build_linux_nabu_614:
