@@ -63,6 +63,7 @@ jobs:
           echo "sig=$sig" >> "$GITHUB_OUTPUT"
           echo "Source signature: $sig"
           sed -i 's/Kumar-Jy\/linux-nabu.git/atria0\/linux-nabu.git/' packages/$pkg/PKGBUILD
+          sed -i '47i\echo "CONFIG_NTSYNC=m" >> ./arch/arm64/configs/nabu_defconfig'
           echo "===== pting $pkg ====="
           cat "./packages/$pkg/PKGBUILD"
           echo "=====        ====="
